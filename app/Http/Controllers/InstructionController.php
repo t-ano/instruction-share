@@ -93,8 +93,7 @@ class InstructionController extends Controller
             'content.required' => '指示内容は必須です。',
         ]);
 
-        $instruction = Instruction::findOrFail($instruction);
-    dd($instruction);
+        $instruction = Instruction::findOrFail($instruction->id);
         $instruction->content = $request->content;
         $instruction->save();
 
