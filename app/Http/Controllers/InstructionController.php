@@ -37,6 +37,14 @@ class InstructionController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'content' => 'required',
+            'date' => 'required|unique:instruction',
+        ],[
+            'content.required' => '指示内容は必須です。',
+            'date.required' => '日付は必須です。',
+        ]);
+
         $instruction = new Instruction();
         $instruction->content = $request->content;
         $instruction->date = $request->date;
