@@ -26,7 +26,9 @@ class InstructionController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $today = (is_null(old('date'))) ? date('Y-m-d') : old('date');
+
+        return view('create', compact('today'));
     }
 
     /**
@@ -39,10 +41,11 @@ class InstructionController extends Controller
     {
         $request->validate([
             'content' => 'required',
-            'date' => 'required|unique:instruction',
+            'date' => 'required|unique:instructions',
         ],[
             'content.required' => '指示内容は必須です。',
             'date.required' => '日付は必須です。',
+            'date.unique' => '登録済みの日付です。'
         ]);
 
         $instruction = new Instruction();
@@ -61,7 +64,7 @@ class InstructionController extends Controller
      */
     public function show(Instruction $instruction)
     {
-        //
+        return view('show', compact('instruction'));
     }
 
     /**
@@ -72,7 +75,7 @@ class InstructionController extends Controller
      */
     public function edit(Instruction $instruction)
     {
-        //
+        return view('edit', compact('instruction'));
     }
 
     /**
@@ -84,7 +87,18 @@ class InstructionController extends Controller
      */
     public function update(Request $request, Instruction $instruction)
     {
-        //
+        $request->validate([
+            'content' => 'required',
+        ], [
+            'content.required' => '指示内容は必須です。',
+        ]);
+
+        $instruction = Instruction::findOrFail($instruction);
+    dd($instruction);
+        $instruction->content = $request->content;
+        $instruction->save();
+
+        return redirect()->route('show', ['instruction' => $instruction]);
     }
 
     /**
