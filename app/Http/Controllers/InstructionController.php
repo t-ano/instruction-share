@@ -14,7 +14,7 @@ class InstructionController extends Controller
      */
     public function index()
     {
-        $instructions = Instruction::all();
+        $instructions = Instruction::orderBy('date', 'DESC')->get();
 
         return view('index', compact('instructions'));
     }
@@ -108,6 +108,8 @@ class InstructionController extends Controller
      */
     public function destroy(Instruction $instruction)
     {
-        //
+        Instruction::destroy($instruction->id);
+
+        return redirect()->route('index');
     }
 }

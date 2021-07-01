@@ -24,7 +24,7 @@
                 @foreach ($instructions as $value)
                 <tr>
                     <td class="border px-4 py-2">{{ $value->date }}</td>
-                    <td class="border px-4 py-2">{{ $value->content }}</td>
+                    <td class="border px-4 py-2">{{ mb_substr($value->content, 0, 50) }}</td>
                     <td class="border px-4 py-2 text-center">
                         <a href="{{ route('show', ['instruction' => $value]) }}" class="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">詳細</a>
                     </td>

@@ -25,7 +25,7 @@ Route::get('create', [InstructionController::class, 'create'])
     ->name('create');
     
 Route::post('store', [InstructionController::class, 'store'])
-->name('store');
+    ->name('store');
 
 Route::get('/show/{instruction}', [InstructionController::class, 'show'])
     ->name('show');
@@ -36,6 +36,6 @@ Route::get('edit/{instruction}', [InstructionController::class, 'edit'])
 Route::post('update/{instruction}', [InstructionController::class, 'update'])
     ->name('update');
 
-// Route::post('destroy', [InstructionController::class, 'destroy'])
-//     ->name('destroy');
+Route::post('destroy/{instruction}', [InstructionController::class, 'destroy'])
+    ->name('destroy');
 
