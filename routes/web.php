@@ -27,7 +27,7 @@ Route::get('create', [InstructionController::class, 'create'])
 Route::post('store', [InstructionController::class, 'store'])
     ->name('store');
 
-Route::get('/show/{instruction}', [InstructionController::class, 'show'])
+Route::get('show/{instruction}', [InstructionController::class, 'show'])
     ->name('show');
 
 Route::get('edit/{instruction}', [InstructionController::class, 'edit'])

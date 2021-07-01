@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Instruction;
+use Database\Seeders\InstructionSeeder;
 use Illuminate\Http\Request;
 
 class InstructionController extends Controller
@@ -12,11 +13,25 @@ class InstructionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $instructions = Instruction::orderBy('date', 'DESC')->get();
+        if (isset($request->search) && $request->start && $request->end) {  // 絞り込み
+            $instructions = Instruction::whereColumn([
+                    ['date', '>=', $request->start],
+                    ['date', '<=', $request->end]
+                ])
+                ->orderBy('date', 'DESC')
+                ->get();
+            
+            $start = $request->start;
+            $end = $request->end;
+        } else {
+            $instructions = Instruction::orderBy('date', 'DESC')->get();
 
-        return view('index', compact('instructions'));
+            $start = '';
+            $end = '';
+        }
+        return view('index', compact('instructions', 'start', 'end'));
     }
 
     /**
@@ -42,7 +57,7 @@ class InstructionController extends Controller
         $request->validate([
             'content' => 'required',
             'date' => 'required|unique:instructions',
-        ],[
+        ], [
             'content.required' => '指示内容は必須です。',
             'date.required' => '日付は必須です。',
             'date.unique' => '登録済みの日付です。'

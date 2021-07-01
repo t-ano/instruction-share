@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="bg-gray-100 h-screen">
+    <div class="bg-gray-100 h-full pb-20">
         <div class="w-10/12 ml-auto mr-auto">
         {{ $slot }}
         </div>
