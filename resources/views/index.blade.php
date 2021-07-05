@@ -11,25 +11,21 @@
         <div class="max-w-screen-md mx-auto">
 
             <div class="my-3">
-                <form action="{{ route('index') }}" method="get" class="flex justify-betstart">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
-                        開始
-                    </label>
-                    <input class="shadow appearance-none border rounded w-100 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mr-3"
-                        type="date" name="start" value="{{ $start }}">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
-                        終了
-                    </label>
-                    <input class="shadow appearance-none border rounded w-100 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mr-3"
-                    type="date" name="end" value="{{ $end }}">
-                    <button type="button" id="clear" class="bg-transparent hover:bg-gray-500 text-gray-700 hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded mr-3">クリア</button>
+                <form action="{{ route('index') }}" method="get" class="lg:flex justify-between">
+                    <div class="flex justify-start mb-3 lg:mb-0">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 mx-1">
+                            開始
+                        </label>
+                        <input class="shadow appearance-none border rounded w-100 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mx-1" type="date" name="start" value="{{ $start }}">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 mx-1">
+                            終了
+                        </label>
+                        <input class="shadow appearance-none border rounded w-100 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mx-1" type="date" name="end" value="{{ $end }}">
+                    </div>
+                    <button type="button" id="clear" class="bg-transparent hover:bg-gray-500 text-gray-700 hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">クリア</button>
                     <input type="submit" name="search" value="絞り込み" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                    <a href="{{ route('create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right lg:float-none">新規作成</a>
                 </form>
-                <div class="text-right">
-                    <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        <a href="{{ route('create') }}">新規作成</a>
-                    </button>
-                </div>
             </div>
     
             <table class="table-fix w-full">

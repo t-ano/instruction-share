@@ -17,9 +17,7 @@
         <div class="mx-3 mb-10">{{ $instruction->date }}</div>
         
         <div class="flex justify-start">
-            <span class="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-5">
-                <a href="{{ route('edit', ['instruction' => $instruction]) }}">編集</a>
-            </span>
+            <a href="{{ route('edit', ['instruction' => $instruction]) }}" class="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-5">編集</a>
             <form method="post" action="{{ route('destroy', ['instruction' => $instruction]) }}" name="destroyForm{{$instruction->id}}" >
                 @csrf
                 <button type="button" class="bg-transparent hover:bg-gray-500 text-gray-700 hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded" name="instruction" value="{{ $instruction }}" onclick="deleteCheck()">削除</button>

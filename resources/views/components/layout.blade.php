@@ -9,8 +9,8 @@
     <title>{{ $title }}</title>
 </head>
 
-<body>
-    <div class="bg-gray-100 h-full pb-20">
+<body class="bg-gray-100">
+    <div class="h-full pb-20">
         <div class="w-10/12 ml-auto mr-auto">
         {{ $slot }}
         </div>
