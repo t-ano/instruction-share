@@ -14,4 +14,4 @@
 
 <br>
 
-画面イメージはこちら → [Notion](https://www.notion.so/d3b3a4d72f384bac928a72b3374ab7e9)
+画面イメージはこちら → [Notion](https://ossified-elephant-7c0.notion.site/d3b3a4d72f384bac928a72b3374ab7e9)
