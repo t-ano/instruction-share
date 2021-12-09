@@ -12,6 +12,5 @@
 - 指示の一覧表示、詳細表示、登録、更新、削除。
 - 一覧表示の絞り込み。
 
-<br>
-
-画面イメージはこちら → [Notion](https://ossified-elephant-7c0.notion.site/03206a0884dc4e6ebf82b094aeada318)
+### 画面イメージ
+![](https://user-images.githubusercontent.com/46856574/145411077-974c2bdd-8365-4eec-bbe7-476705e3f768.png)
